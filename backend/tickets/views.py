@@ -6,6 +6,7 @@ from rest_framework.response import Response
 
 from .models import Comment, Ticket
 from .serializers import CommentSerializer, TicketSerializer
+from .services.ai_classifier import AIClassifierService
 
 
 class TicketViewSet(viewsets.ModelViewSet):
@@ -29,3 +30,40 @@ class TicketViewSet(viewsets.ModelViewSet):
             CommentSerializer(comment).data,
             status=status.HTTP_201_CREATED,
         )
+
+    @action(
+        detail=True,
+        methods=["post"],
+        url_path="classify",
+    )
+    def classify(self, request, pk=None):
+        ticket = self.get_object()
+
+        try:
+            classification = AIClassifierService().classify(ticket)
+
+            ticket.category = classification.category
+            ticket.priority = classification.priority
+            ticket.summary = classification.summary
+            ticket.save(
+                update_fields=[
+                    "category",
+                    "priority",
+                    "summary",
+                    "updated_at",
+                ]
+            )
+
+            return Response(
+                TicketSerializer(ticket).data,
+                status=status.HTTP_200_OK,
+            )
+
+        except Exception as exc:
+            return Response(
+                {
+                    "detail": "Ticket classification failed.",
+                    "error": str(exc),
+                },
+                status=status.HTTP_502_BAD_GATEWAY,
+            )

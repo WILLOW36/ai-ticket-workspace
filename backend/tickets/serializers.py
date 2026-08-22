@@ -38,6 +38,8 @@ class TicketSerializer(serializers.ModelSerializer):
         ]
         read_only_fields = [
             "id",
+            "category",
+            "priority",
             "summary",
             "created_at",
             "updated_at",
