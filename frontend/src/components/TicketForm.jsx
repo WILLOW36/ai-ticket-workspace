@@ -61,7 +61,7 @@ function TicketForm({ onCreated, onCancel }) {
               value={form.customer_name}
               onChange={handleChange}
               required
-              placeholder="ACME Corp"
+              placeholder="Company Example Corp"
             />
           </label>
 
