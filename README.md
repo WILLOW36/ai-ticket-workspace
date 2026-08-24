@@ -1,6 +1,7 @@
 # AI Ticket Workspace
 
 Espacio de trabajo para la gestión de tickets impulsado por IA.
+Aplicación Full Stack desarrollada con React, Django REST Framework y PostgreSQL, con clasificación de tickets mediante IA y ejecución completa mediante Docker Compose.
 
 ![React](https://img.shields.io/badge/React-Frontend-61DAFB)
 ![Python](https://img.shields.io/badge/Python-3.13-3776AB)
