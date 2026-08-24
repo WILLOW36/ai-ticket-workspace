@@ -2,6 +2,13 @@
 
 Espacio de trabajo para la gestión de tickets impulsado por IA.
 
+![React](https://img.shields.io/badge/React-Frontend-61DAFB)
+![Python](https://img.shields.io/badge/Python-3.13-3776AB)
+![Django](https://img.shields.io/badge/Django-5.2-092E20)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-4169E1)
+![Docker](https://img.shields.io/badge/Docker-Compose-2496ED)
+![AI](https://img.shields.io/badge/AI-Gemini-4285F4)
+
 ## Descripción general
 
 Flujo principal:
@@ -16,6 +23,16 @@ Flujo principal:
 - También puede agregar comentarios al ticket.
 - Revisa todos los tickets desde un panel de control dashboard.
 - El ticket se guarda en PostgreSQL.
+
+## Capturas
+
+### Dashboard
+
+![Dashboard](docs/images/ai-ticket-Dashboard.png)
+
+### Gestión de tickets
+
+![All Tickets](docs/images/ai-ticket-All_Tickets.png)
 
 ## Stack tecnológico
 
